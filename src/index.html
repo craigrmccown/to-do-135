@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Replication Monitor</title>
+
+    <!-- build:css /styles/main.css -->
+
+    <link rel="stylesheet" href="/styles/main.css" />
+
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <div ui-view></div>
+
+    <!-- build:js /app/build.js -->
+    <script type="text/javascript" src="/components/spin.js/spin.js"></script>
+    <script type="text/javascript" src="/components/angular/angular.js"></script>
+    <script type="text/javascript" src="/components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- @if ENV == 'development' -->
+    <script type="text/javascript" src="/components/angular-mocks/angular-mocks.js"></script>
+    <!-- @endif -->
+
+    <script type="text/javascript" src="/app/app.js"></script>
+    <!-- @if ENV == 'development' -->
+    <script type="text/javascript" src="/app/mock.js"></script>
+    <!-- @endif -->
+
+    <!-- @if ENV == 'development' -->
+    <script type="text/javascript" src="/app/mock-bootstrap.js"></script>
+    <!-- @endif -->
+    <!-- @if ENV == 'production' -->
+    <script type="text/javascript" src="/app/bootstrap.js"></script>
+    <!-- @endif -->
+
+    <!-- endbuild -->
+  </body>
+</html>

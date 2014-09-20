@@ -1,0 +1,23 @@
+{
+  "name": "to-do-135",
+  "version": "0.0.0",
+  "homepage": "https://github.com/craigrmccown/to-do-135",
+  "authors": [
+    "Craig McCown"
+  ],
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.23",
+    "angular-ui-router": "~0.2.10",
+    "angular-mocks": "~1.2.23",
+    "spin.js": "~2.0.1"
+  }
+}

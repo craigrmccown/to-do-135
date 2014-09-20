@@ -1,0 +1,6 @@
+node_modules
+.sass-cache
+build
+.tmp
+*.swp
+src/components/*
