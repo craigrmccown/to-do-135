@@ -1,3 +1,4 @@
-<div>
-  bank
+<div ng-repeat="task in bank.tasks" class="task task--in-bank">
+  <div class="task__spacer"></div>
+  <div class="task__box">{{ task.title }}</div>
 </div>

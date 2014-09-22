@@ -29,7 +29,7 @@ $task-section-height: 33.333333%;
   overflow-y: auto;
 }
 
-/* app layout */
+/* app */
 .app {
 }
 
@@ -66,7 +66,7 @@ $task-section-height: 33.333333%;
   background: orange;
 }
 
-/* day layout */
+/* day */
 .day {
   background: orange;
 }
@@ -88,4 +88,31 @@ $task-section-height: 33.333333%;
 .day__task-section--large {
   top: 0;
   background: green;
+}
+
+/* task */
+.task {
+  display: inline-block;
+
+  >div.task__spacer {
+    height: 5%;
+  }
+
+  >div.task__box {
+    height: 90%;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+}
+
+.task--in-bank {
+  width: 90%;
+  height: 33.333333%;
+  margin: 0 5% 0 5%;
+}
+
+.task--in-day {
+  width: 17%;
+  height: 100%;
+  margin: 0 1.5% 0 1.5%;
 }

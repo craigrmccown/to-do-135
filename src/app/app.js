@@ -3,13 +3,19 @@ angular.module('toDo135.app', ['ui.router'])
     $stateProvider
       .state('app', {
         templateUrl: '/app/views/app.html',
-        controller: 'AppCtrl',
-        abstract: true
+        abstract: true,
+        controller: 'AppCtrl'
       })
       .state('app.todo', {
         views: {
           'bank': {
             templateUrl: '/app/todo/views/bank.html',
+            resolve: {
+              'Bank': function(Bank) {
+                return new Bank();
+              }
+            },
+            controller: 'BankCtrl'
           },
           'day': {
             templateUrl: '/app/todo/views/day.html'
@@ -17,9 +23,13 @@ angular.module('toDo135.app', ['ui.router'])
         }
       })
   }])
-  .run(['$state', function($state) {
+  .run(['$state', '$rootScope', function($state, $rootScope) {
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+      console.log('state change error.');
+      console.log(error);
+    });
+
     $state.go('app.todo');
   }])
   .controller('AppCtrl', [function() {
-
   }]);
