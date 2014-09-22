@@ -1,0 +1,66 @@
+@import "compass/reset";
+
+$bank-width: 300px;
+$header-height: 50px;
+$footer-height: 50px;
+
+/* global layout */
+.row {
+  left: 0;
+  right: 0;
+}
+
+.col {
+  top: 0;
+  bottom: 0;
+}
+
+.row, .col {
+  overflow: hidden;
+  position: absolute;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+.scroll-y {
+  overflow-y: auto;
+}
+
+/* app layout */
+.app {
+}
+
+.app__header {
+  top: 0;
+  height: $header-height;
+  line-height: $header-height;
+  background: black;
+  color: white;
+}
+
+.app__body {
+  top: $header-height;
+  bottom: $footer-height;
+}
+
+.app__footer {
+  bottom: 0;
+  height: $footer-height;
+  line-height: $footer-height;
+  background: black;
+  color: white;
+}
+
+.app__sidebar {
+  left: 0;
+  width: $bank-width;
+  background: green;
+}
+
+.app__content {
+  right: 0;
+  left: $bank-width;
+  background: blue;
+}
