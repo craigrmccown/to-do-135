@@ -3,6 +3,7 @@
 $bank-width: 300px;
 $header-height: 50px;
 $footer-height: 50px;
+$task-section-height: 33.333333%;
 
 /* global layout */
 .row {
@@ -56,11 +57,35 @@ $footer-height: 50px;
 .app__sidebar {
   left: 0;
   width: $bank-width;
-  background: green;
+  background: gray;
 }
 
 .app__content {
   right: 0;
   left: $bank-width;
+  background: orange;
+}
+
+/* day layout */
+.day {
+  background: orange;
+}
+
+.day__task-section {
+  height: $task-section-height;
+}
+
+.day__task-section--small {
+  top: $task-section-height * 2;
+  background: orange;
+}
+
+.day__task-section--medium {
+  top: $task-section-height;
   background: blue;
+}
+
+.day__task-section--large {
+  top: 0;
+  background: green;
 }
