@@ -1,24 +1,28 @@
 @import "compass/reset";
 
-$bank-width: 300px;
+$gutter-width: 12px;
+$bank-width: 100% / 6;
 $header-height: 50px;
 $footer-height: 50px;
 $task-section-height: 33.333333%;
 
+$small-color: green;
+$medium-color: blue;
+$large-color: orange;
+
 /* global layout */
-.row {
-  left: 0;
-  right: 0;
+
+div {
+  box-sizing: border-box;
 }
 
-.col {
-  top: 0;
-  bottom: 0;
-}
-
-.row, .col {
-  overflow: hidden;
-  position: absolute;
+.row:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 
 .scroll-x {
@@ -31,10 +35,17 @@ $task-section-height: 33.333333%;
 
 /* app */
 .app {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
 }
 
 .app__header {
+  position: absolute;
   top: 0;
+  width: 100%;
   height: $header-height;
   line-height: $header-height;
   background: black;
@@ -42,12 +53,16 @@ $task-section-height: 33.333333%;
 }
 
 .app__body {
+  position: absolute;
   top: $header-height;
   bottom: $footer-height;
+  width: 100%;
 }
 
 .app__footer {
+  position: absolute;
   bottom: 0;
+  width: 100%;
   height: $footer-height;
   line-height: $footer-height;
   background: black;
@@ -55,64 +70,98 @@ $task-section-height: 33.333333%;
 }
 
 .app__sidebar {
+  position: absolute;
   left: 0;
   width: $bank-width;
+  height: 100%;
   background: gray;
 }
 
 .app__content {
-  right: 0;
+  position: absolute;
   left: $bank-width;
+  right: 0;
+  height: 100%;
   background: orange;
 }
 
 /* day */
 .day {
-  background: orange;
+  height: 100%;
 }
 
 .day__task-section {
   height: $task-section-height;
+  padding: $gutter-width;
+
+  > .task {
+    width: 20%;
+    height: 100%;
+    margin-right: -4px;
+    padding: 0 ($gutter-width / 2) 0 ($gutter-width / 2);
+  }
+
+  > .task--first {
+    padding: 0 ($gutter-width / 2) 0 0;
+  }
+
+  > .task--last {
+    padding: 0 0 0 ($gutter-width / 2);
+  }
 }
 
 .day__task-section--small {
   top: $task-section-height * 2;
-  background: orange;
+  background: $small-color;
+
+  > .task > .task__inner {
+      border-color: darken($small-color, 15%);
+  }
 }
 
 .day__task-section--medium {
   top: $task-section-height;
-  background: blue;
+  background: $medium-color;
+
+  > .task > .task__inner {
+      border-color: darken($medium-color, 15%);
+  }
 }
 
 .day__task-section--large {
   top: 0;
-  background: green;
+  background: $large-color;
+
+  > .task > .task__inner {
+      border-color: darken($large-color, 15%);
+  }
+}
+
+/* bank */
+.bank {
+  height: 100%;
+  padding: $gutter-width;
+
+  > .task {
+    width: 100%;
+    height: $task-section-height;
+    margin-bottom: -4px;
+    padding: 0 0 ($gutter-width) 0;
+  }
 }
 
 /* task */
 .task {
   display: inline-block;
 
-  >div.task__spacer {
-    height: 5%;
-  }
-
-  >div.task__box {
-    height: 90%;
-    box-sizing: border-box;
-    border: 1px solid black;
+  > .task__inner {
+    height: 100%;
+    border-width: 6px;
+    border-style: solid;
+    border-radius: 24px;
   }
 }
 
-.task--in-bank {
-  width: 90%;
-  height: 33.333333%;
-  margin: 0 5% 0 5%;
-}
-
-.task--in-day {
-  width: 17%;
-  height: 100%;
-  margin: 0 1.5% 0 1.5%;
+.task--invisible {
+  visibility: hidden;
 }
