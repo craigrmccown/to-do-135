@@ -13,6 +13,9 @@ angular.module('toDo135.app', ['ui.router'])
             resolve: {
               'Bank': function(Bank) {
                 return new Bank();
+              },
+              'Day': function(Day) {
+                return new Day();
               }
             },
             controller: 'BankCtrl'
