@@ -1,14 +1,17 @@
 @import "compass/reset";
 
 $gutter-width: 12px;
-$bank-width: 100% / 6;
+$sidebar-width: 100% / 6;
+$content-width: 100% - $sidebar-width;
 $header-height: 50px;
 $footer-height: 50px;
 $task-section-height: 33.333333%;
 
-$small-color: green;
-$medium-color: blue;
-$large-color: orange;
+$panel-color: #333;
+$panel-text-color: lighten($panel-color, 40%);
+$small-color: #55F855;
+$medium-color: #6490F3;
+$large-color: #FFA358;
 
 /* global layout */
 
@@ -48,8 +51,9 @@ div {
   width: 100%;
   height: $header-height;
   line-height: $header-height;
-  background: black;
-  color: white;
+  background: $panel-color;
+  color: $panel-text-color;
+  text-align: center;
 }
 
 .app__body {
@@ -65,22 +69,23 @@ div {
   width: 100%;
   height: $footer-height;
   line-height: $footer-height;
-  background: black;
-  color: white;
+  background: $panel-color;
+  color: $panel-text-color;
+  text-align: center;
 }
 
 .app__sidebar {
   position: absolute;
   left: 0;
-  width: $bank-width;
+  width: $sidebar-width;
   height: 100%;
-  background: gray;
+  background: lighten($panel-color, 25%);
 }
 
 .app__content {
   position: absolute;
-  left: $bank-width;
-  right: 0;
+  left: $sidebar-width;
+  width: $content-width;
   height: 100%;
   background: orange;
 }
@@ -115,7 +120,7 @@ div {
   background: $small-color;
 
   > .task > .task__inner {
-      border-color: darken($small-color, 15%);
+      border-color: darken($small-color, 25%);
   }
 }
 
@@ -124,7 +129,7 @@ div {
   background: $medium-color;
 
   > .task > .task__inner {
-      border-color: darken($medium-color, 15%);
+      border-color: darken($medium-color, 25%);
   }
 }
 
@@ -133,7 +138,7 @@ div {
   background: $large-color;
 
   > .task > .task__inner {
-      border-color: darken($large-color, 15%);
+      border-color: darken($large-color, 25%);
   }
 }
 
@@ -147,6 +152,10 @@ div {
     height: $task-section-height;
     margin-bottom: -4px;
     padding: 0 0 ($gutter-width) 0;
+
+    > .task__inner {
+      border-color: $panel-color;
+    }
   }
 }
 
