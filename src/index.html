@@ -21,11 +21,18 @@
     <script type="text/javascript" src="/components/angular-mocks/angular-mocks.js"></script>
     <!-- @endif -->
 
+    <!-- @if ENV == 'development' -->
+    <script type="text/javascript" src="/environment/development.js"></script>
+    <!-- @endif -->
+    <!-- @if ENV == 'production' -->
+    <script type="text/javascript" src="/environment/production.js"></script>
+    <!-- @endif -->
     <script type="text/javascript" src="/app/app.js"></script>
     <script type="text/javascript" src="/app/services.js"></script>
     <script type="text/javascript" src="/app/todo/controllers.js"></script>
     <!-- @if ENV == 'development' -->
     <script type="text/javascript" src="/app/mock.js"></script>
+    <script type="text/javascript" src="/environment/development.js"></script>
     <!-- @endif -->
 
     <!-- @if ENV == 'development' -->

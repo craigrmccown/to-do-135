@@ -48,6 +48,18 @@ module.exports = function(grunt) {
             dest: '<%= config.dist %>'
           }
         ]
+      },
+      environmentToDist: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.src %>',
+            src: [
+              'environment/**/*',
+            ],
+            dest: '<%= config.dist %>'
+          }
+        ]
       }
     },
     compass: {
@@ -75,6 +87,14 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      environment: {
+        files: '<%= config.src %>/environment/**/*',
+        tasks: ['copy:environmentToDist'],
+        options: {
+          interrupt: true,
+          debounceDelay: 250
+        }
+      },
       app: {
         files: '<%= config.src %>/app/**/*',
         tasks: ['copy:appToDist'],
@@ -117,6 +137,7 @@ module.exports = function(grunt) {
     'clean:dist',
     'preprocess:indexToDist',
     'copy:componentsToDist',
+    'copy:environmentToDist',
     'copy:appToDist',
     'compass:stylesToDist'
   ]);
@@ -129,6 +150,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('prod', [
     'env:prod',
-    'build'
+    'build',
+    'concurrent:dev'
   ]);
 }

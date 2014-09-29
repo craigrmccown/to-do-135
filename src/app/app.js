@@ -1,4 +1,4 @@
-angular.module('toDo135.app', ['ui.router'])
+angular.module('toDo135.app', ['toDo135.config', 'ui.router'])
   .config(['$stateProvider', function($stateProvider) {
     $stateProvider
       .state('app', {
@@ -15,7 +15,7 @@ angular.module('toDo135.app', ['ui.router'])
                 return new Bank();
               },
               'Day': function(Day) {
-                return new Day();
+                // return new Day();
               }
             },
             controller: 'BankCtrl'
@@ -35,4 +35,5 @@ angular.module('toDo135.app', ['ui.router'])
     $state.go('app.todo');
   }])
   .controller('AppCtrl', [function() {
+    
   }]);

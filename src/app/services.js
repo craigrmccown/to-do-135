@@ -11,9 +11,8 @@ angular.module('toDo135.app')
         function(response) {
           response.data.forEach(function(taskData) {
             self.tasks.push(new Task(taskData));
+            self.taskIndex[taskData.id] = self.tasks[self.tasks.length - 1];
           });
-
-          taskIndex[taskData.id] = self.tasks[self.tasks.length - 1];
 
           deferred.resolve(self);
         },
